@@ -1,8 +1,9 @@
 .fade-in {
-    animation: 2s fade-in infinite;
+    animation: 6s fade-in;
 }
 
 @keyframes fade-in {
     0% {color: #C9070700;}
+    50% {color: #C9070700;}
     100% {color: #C90707;}
 }

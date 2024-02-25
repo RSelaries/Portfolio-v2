@@ -72,21 +72,9 @@ function HomeUi() {
 }
 
 function HomeTitleAndNavbar() {
-    // const [titleDisplay, setTitleDisplay] = useState(false)
-
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setTitleDisplay(true)
-    //     }, 3000);
-
-    //     return () => {
-    //         clearTimeout(timer)
-    //     }
-    // }, [])
 
     return (
         <div
-            // className={`${titleDisplay ? 'fade-in' : ''}`}
             className="fade-in"
             style={{ opacity: 1, color: '#C90707' }}
         >
@@ -112,7 +100,6 @@ function HomeTitleAndNavbar() {
                             fontWeight: "900",
                             letterSpacing: "-0.9vw",
                             mixBlendMode: "multiply",
-                            // color: "#C90707",
                             lineHeight: "80%",
                             textAlign: "center",
                             position: "relative",
@@ -132,7 +119,6 @@ function HomeTitleAndNavbar() {
                         fontFamily: "Poppins",
                         fontWeight: "900",
                         position: "absolute",
-                        // color: "#C90707",
                         textAlign: "center",
                         transform:
                             "translateY( calc(var(--font-size) * 0.25) )",
