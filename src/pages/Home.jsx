@@ -1,7 +1,8 @@
 import background from "../assets/images/background-image.webp"
 import cassandre from "../assets/images/DSC_09z89.png"
+import Navbar from "../components/Navbar"
 import './Home.css'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Home() {
     return (
@@ -72,11 +73,12 @@ function HomeUi() {
 }
 
 function HomeTitleAndNavbar() {
+    const titleColor = "#C90707"
 
     return (
         <div
             className="fade-in"
-            style={{ opacity: 1, color: '#C90707' }}
+            style={{ opacity: 1, color: titleColor }}
         >
             <div
                 style={{
@@ -128,6 +130,8 @@ function HomeTitleAndNavbar() {
                     RAPHAEL
                 </div>
             </div>
+
+            <Navbar color={titleColor}/>
         </div>
     )
 }
