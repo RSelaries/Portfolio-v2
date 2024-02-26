@@ -101,15 +101,24 @@ function HomeTitleAndNavbar() {
     }, [])
 
     return (
-        <div className="fade-in" style={{ opacity: 1, color: titleColor }}>
+        <div
+            className="fade-in"
+            style={{ 
+                position: "absolute",
+                top: "0",
+                width: "100vw",
+                height: "100vh",
+                opacity: 1, 
+                color: titleColor,
+            }}
+        >
             <div
                 style={{
-                    width: "100vw",
-                    height: "100vh",
+                    width: "100%",
+                    height: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    position: "absolute",
                     top: "0",
 
                     "--font-size": "12vw",
