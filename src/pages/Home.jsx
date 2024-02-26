@@ -1,8 +1,9 @@
+import { Outlet } from "react-router-dom"
 import background from "../assets/images/background-image.webp"
 import cassandre from "../assets/images/DSC_09z89.png"
 import Navbar from "../components/Navbar"
-// import "./Home.css"
-import { useEffect, useState } from "react"
+import "./Home.css"
+import { useState } from "react"
 
 export default function Home() {
     return (
@@ -19,28 +20,31 @@ function BackgroundImage() {
     const homeAnimationDuration = 3000 // In Miliseconds
 
     return (
-        <div
-            style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
-            onClick={() => console.log("gros-zizi")}
-        >
-            <img
-                className="image"
-                src={background}
-                style={{
-                    width: "100vw",
-                    transform: imageScroll,
-                    transition: `transform ${
-                        homeAnimationDuration * 0.001
-                    }s cubic-bezier(.9,0,.5,1) 0.5s`,
-                }}
-                alt=""
-                onLoad={() => {
-                    setImageScroll(`translateY(${imgScrollHeight})`)
-                }}
-            />
-            <HomeUi />
-            <HomeTitleAndNavbar />
-        </div>
+        <>
+            <div
+                style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
+                onClick={() => console.log("gros-zizi")}
+            >
+                <img
+                    className="image"
+                    src={background}
+                    style={{
+                        width: "100vw",
+                        transform: imageScroll,
+                        transition: `transform ${
+                            homeAnimationDuration * 0.001
+                        }s cubic-bezier(.9,0,.5,1) 0.5s`,
+                    }}
+                    alt=""
+                    onLoad={() => {
+                        setImageScroll(`translateY(${imgScrollHeight})`)
+                    }}
+                />
+                <HomeUi />
+                <HomeTitleAndNavbar />
+            </div>
+            <Outlet />
+        </>
     )
 }
 
@@ -74,41 +78,16 @@ function HomeUi() {
 
 function HomeTitleAndNavbar() {
     const titleColor = "#C90707"
-    useEffect(() => {
-        const HomeTitleAndNavabrCss = `
-            .fade_in {
-                position: fixed;
-                top: 0;
-                width: 100vw;
-                height: 100vh;
-    
-                animation: 6s fade-in;
-                background-color: aqua;
-            }
-    
-            @keyframes fade-in {
-                0% {color: #C9070700;}
-                50% {color: #C9070700;}
-                100% {color: #C90707;}
-            }
-            
-        `
-    
-        const style = document.createElement("style")
-        style.innerHTML = HomeTitleAndNavabrCss
-    
-        document.head.append(style)
-    }, [])
 
     return (
         <div
             className="fade-in"
-            style={{ 
+            style={{
                 position: "absolute",
                 top: "0",
                 width: "100vw",
                 height: "100vh",
-                opacity: 1, 
+                opacity: 1,
                 color: titleColor,
             }}
         >
@@ -162,7 +141,7 @@ function HomeTitleAndNavbar() {
                 </div>
             </div>
 
-            <Navbar color={titleColor} />
+            <Navbar color={titleColor} className={"fade-in"} />
         </div>
     )
 }

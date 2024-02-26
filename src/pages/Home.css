@@ -1,4 +1,4 @@
-.fade-in {
+.fade-in, .fade-in * {
     animation: 6s fade-in;
 }
 

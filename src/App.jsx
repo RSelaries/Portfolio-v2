@@ -1,10 +1,16 @@
+import { Routes, Route, useLocation } from "react-router-dom"
+import Perrine from "./pages/Perrine"
 import Home from "./pages/Home"
-import './App.css'
 
 export default function App() {
+    const location = useLocation()
+
     return (
         <>
-            <Home />
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/perruche" element={<Perrine />} />
+            </Routes>
         </>
     )
 }
