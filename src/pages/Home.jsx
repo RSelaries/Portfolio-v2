@@ -1,8 +1,8 @@
 import background from "../assets/images/background-image.webp"
 import cassandre from "../assets/images/DSC_09z89.png"
 import Navbar from "../components/Navbar"
-import './Home.css'
-import { useState } from "react"
+// import "./Home.css"
+import { useEffect, useState } from "react"
 
 export default function Home() {
     return (
@@ -21,7 +21,7 @@ function BackgroundImage() {
     return (
         <div
             style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
-            onClick={() => console.log('gros-zizi')}
+            onClick={() => console.log("gros-zizi")}
         >
             <img
                 className="image"
@@ -39,7 +39,7 @@ function BackgroundImage() {
                 }}
             />
             <HomeUi />
-            <HomeTitleAndNavbar/>
+            <HomeTitleAndNavbar />
         </div>
     )
 }
@@ -74,12 +74,34 @@ function HomeUi() {
 
 function HomeTitleAndNavbar() {
     const titleColor = "#C90707"
+    useEffect(() => {
+        const HomeTitleAndNavabrCss = `
+            .fade_in {
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+    
+                animation: 6s fade-in;
+                background-color: aqua;
+            }
+    
+            @keyframes fade-in {
+                0% {color: #C9070700;}
+                50% {color: #C9070700;}
+                100% {color: #C90707;}
+            }
+            
+        `
+    
+        const style = document.createElement("style")
+        style.innerHTML = HomeTitleAndNavabrCss
+    
+        document.head.append(style)
+    }, [])
 
     return (
-        <div
-            className="fade-in"
-            style={{ opacity: 1, color: titleColor }}
-        >
+        <div className="fade-in" style={{ opacity: 1, color: titleColor }}>
             <div
                 style={{
                     width: "100vw",
@@ -131,7 +153,7 @@ function HomeTitleAndNavbar() {
                 </div>
             </div>
 
-            <Navbar color={titleColor}/>
+            <Navbar color={titleColor} />
         </div>
     )
 }
