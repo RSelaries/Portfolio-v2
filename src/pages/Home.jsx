@@ -1,29 +1,22 @@
-import { Outlet } from "react-router-dom"
+// Elements and Modules
+import { PageElement } from "../App"
+import { useState } from "react"
+
+// Assets
 import background from "../assets/images/background-image.webp"
 import cassandre from "../assets/images/DSC_09z89.png"
 import Navbar from "../components/Navbar"
-import "./Home.css"
-import { useState } from "react"
 
-export default function Home() {
-    return (
-        <div>
-            <BackgroundImage />
-        </div>
-    )
-}
-
-function BackgroundImage() {
+export default function Home({ handlePageChange, animation }) {
     const [imageScroll, setImageScroll] = useState("translateY(0px)")
     const imgScrollHeight =
         "calc(calc(calc(calc(100vw * 3.5) - 100vh) * -1) + 1px)"
     const homeAnimationDuration = 3000 // In Miliseconds
 
     return (
-        <>
+        <PageElement animation={animation}>
             <div
                 style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
-                onClick={() => console.log("gros-zizi")}
             >
                 <img
                     className="image"
@@ -43,8 +36,7 @@ function BackgroundImage() {
                 <HomeUi />
                 <HomeTitleAndNavbar />
             </div>
-            <Outlet />
-        </>
+        </PageElement>
     )
 }
 
@@ -67,7 +59,6 @@ function HomeUi() {
                         width: "calc(100vw * 0.165)",
                         animation: `3s infinite shaking ease-in-out`,
                         zIndex: 2,
-                        mixBlendMode: "",
                     }}
                     alt=""
                 />
@@ -81,7 +72,6 @@ function HomeTitleAndNavbar() {
 
     return (
         <div
-            className="fade-in"
             style={{
                 position: "absolute",
                 top: "0",
@@ -89,6 +79,7 @@ function HomeTitleAndNavbar() {
                 height: "100vh",
                 opacity: 1,
                 color: titleColor,
+                animation: "6s fade-in",
             }}
         >
             <div

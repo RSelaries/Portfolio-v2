@@ -1,21 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-html *,
-html {
+
+body, body * {
     margin: 0;
-    padding: 0;
+}
+
+@keyframes leave {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(-100%); }
+}
+
+@keyframes enter {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0%); }
+}
+
+@keyframes fade-in {
+    0% {color: #C9070700;}
+    50% {color: #C9070700;}
+    100% {color: #C90707;}
 }
 
 :root {
-    --rdmNbrPx0: 3px;
+    --rdmNbrPx0: 4px;
     --rdmNbrPx1: -5px;
-    --rdmNbrPx2: 2px;
+    --rdmNbrPx2: 4px;
     --rdmNbrPx3: -6px;
 
-    --rdmNbrDeg0: 7deg;
+    --rdmNbrDeg0: 3deg;
     --rdmNbrDeg1: -2deg;
     --rdmNbrDeg2: 4deg;
-    --rdmNbrDeg3: -6deg;
+    --rdmNbrDeg3: -3deg;
 }
 
 @keyframes shaking {
