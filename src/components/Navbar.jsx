@@ -2,16 +2,18 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function Navbar(props) {
-    const { color = "#000" } = props
+    const { color, animation = "", handlePageChange } = props
 
     function StyledLink(props) {
         const {
             children,
             href = "/Portfolio-v2",
+            toPage = "Home",
             fontSize = "1.5rem",
             fontWeight = 600,
         } = props
         const [btnScale, setBtnScale] = useState(1)
+
         return (
             <div
                 style={{
@@ -26,21 +28,25 @@ export default function Navbar(props) {
                         backgroundColor: "transparent",
                         fontFamily: "Poppins",
                         fontWeight: fontWeight,
-                        fontSize: fontSize,   
+                        fontSize: fontSize,
                         padding: "0.2rem",
                         textDecoration: "none",
+                        animation: animation,
+                        transition: "color 2s",
 
                         cursor: "pointer",
                         transform: `scale(${btnScale})`,
                     }}
                     onMouseEnter={() => setBtnScale(1.1)}
                     onMouseLeave={() => setBtnScale(1)}
+                    onClick={() => handlePageChange(toPage)}
                 >
                     {children}
                 </Link>
             </div>
         )
     }
+
     return (
         <div
             style={{
@@ -62,10 +68,16 @@ export default function Navbar(props) {
                 </StyledLink>
             </div>
 
-            <div style={{ display:'flex', flexDirection: 'row' }}>
-                <StyledLink href={"/Portfolio-v2/perruche"}>Perruichz</StyledLink>
-                <StyledLink href={"/Portfolio-v2/A-Propos"}>À Propos</StyledLink>
-                <StyledLink href={"/Portfolio-v2/Contact"}>Contact</StyledLink>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+                <StyledLink href={"/Portfolio-v2/Portfolio"} toPage={"Portfolio"}>
+                    Portfolio
+                </StyledLink>
+                <StyledLink href={"/Portfolio-v2/A-Propos"} toPage={"APropos"}>
+                    À Propos
+                </StyledLink>
+                <StyledLink href={"/Portfolio-v2/Contact"} toPage={"Contact"}>
+                    Contact
+                </StyledLink>
             </div>
         </div>
     )

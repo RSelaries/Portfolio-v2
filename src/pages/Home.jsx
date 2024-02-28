@@ -5,13 +5,12 @@ import { useState } from "react"
 // Assets
 import background from "../assets/images/background-image.webp"
 import cassandre from "../assets/images/DSC_09z89.png"
-import Navbar from "../components/Navbar"
 
 export default function Home({ handlePageChange, animation }) {
     const [imageScroll, setImageScroll] = useState("translateY(0px)")
     const imgScrollHeight =
         "calc(calc(calc(calc(100vw * 3.5) - 100vh) * -1) + 1px)"
-    const homeAnimationDuration = 3000 // In Miliseconds
+    const homeAnimationDuration = 3000 // In Miliseconds 
 
     return (
         <PageElement animation={animation}>
@@ -131,8 +130,6 @@ function HomeTitleAndNavbar() {
                     RAPHAEL
                 </div>
             </div>
-
-            <Navbar color={titleColor} className={"fade-in"} />
         </div>
     )
 }

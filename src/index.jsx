@@ -1,7 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-
 import "./index.css"
+import "../node_modules/overlayscrollbars/styles/overlayscrollbars.css"
+// import 'overlayscrollbars/styles/overlayscrollbars.css'
 import App from "./App.jsx"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
